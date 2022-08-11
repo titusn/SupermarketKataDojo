@@ -39,8 +39,8 @@ public class ShoppingCart {
     }
 
     public String generateReceiptLine() {
-        Item item = items.get(0);
-        return item.getItemLine();
+        ReceiptPrinter printer = new ReceiptPrinter();
+        return printer.printItem(items.get(0), 0);
     }
 
     class Underflow extends RuntimeException {
