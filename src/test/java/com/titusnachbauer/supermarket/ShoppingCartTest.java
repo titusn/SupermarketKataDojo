@@ -88,17 +88,6 @@ class ShoppingCartTest {
         """;
         assertEquals(expected, cart.toString());
     }
-
-    @Test
-    void GivenAReceiptTheLastLineShouldContainTheTotalPrice(){
-        cart.add(new Item("One", 1.00));
-        cart.add(new Item("Two", 2.00));
-        String expected = """
-        One 1,00
-        Two 2,00
-        TOTAL 3,00""";
-        assertEquals(expected, cart.generateReceipt());
-    }
     
     @Test
     void GivenItemsAndPriceThenTheReceiptShouldFormatANiceLine(){
@@ -116,4 +105,17 @@ class ShoppingCartTest {
         Toilet paper              EUR  1,99""";
         assertEquals(expected, cart.generateReceiptLine());
     }
+
+    @Test
+    void GivenCartwithTwoItemsGetReceipt() {
+        cart.add(new Item("Baseball",5.00));
+        cart.add(new Item("Baseball hat",2.00));
+        String expected="""
+        Baseball                  EUR  5,00
+        Baseball hat              EUR  2,00
+        TOTAL                     EUR  7,00 
+        """;
+        assertEquals(expected, cart.generateReceipt());
+    }
+    
 }
