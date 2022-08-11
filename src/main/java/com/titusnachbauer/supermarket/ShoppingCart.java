@@ -39,21 +39,8 @@ public class ShoppingCart {
     }
 
     public String generateReceiptLine() {
-        int descriptionLength = 26;
         Item item = items.get(0);
-        int numberOfSpaces = descriptionLength - item.getName().length();
-
-        StringBuilder sb = new StringBuilder();
-        sb.append(item.getName());
-
-        for (int i = 0; i < numberOfSpaces; i++) {
-            sb.append(" ");
-        }
-        sb.append("EUR");
-        sb.append("  ");
-        sb.append(item.getAmount().toString());
-
-      return sb.toString();
+        return item.getItemLine();
     }
 
     class Underflow extends RuntimeException {
