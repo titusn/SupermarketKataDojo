@@ -2,7 +2,7 @@
 #run = ["java", "-classpath", ".:target/dependency/*", "Main"]
 run = "mvn clean test"
 
-hidden = ["**/*.class"]
+hidden = ["**/*.class", ".settings", ".project"]
 
 [packager]
 language = "java"
