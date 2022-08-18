@@ -3,7 +3,6 @@ package com.titusnachbauer.supermarket;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ShoppingCartTest {
@@ -43,7 +42,8 @@ class ShoppingCartTest {
     void GivenEmptyShoppingCartWhenRemoving1ItemCartShouldThrowException() {
         assertThrows(
                 ShoppingCart.Underflow.class,
-                () -> cart.remove(new Item()));
+                () -> cart.remove(new Item())
+        );
     }
 
     @Test
@@ -64,7 +64,7 @@ class ShoppingCartTest {
     void GivenAShoppingCartWithTwoItemsWhenCalculatingPriceThenTotalShouldBeSumOfTheItemsPrices() {
         cart.add(new Item(new Money(1.00)));
         cart.add(new Item(new Money(2.00)));
-        assertEquals(Money.getThree(), cart.totalPrice());
+        assertThat(cart.totalPrice(), equalTo(Money.getThree()));
     }
 
     @Test
@@ -75,7 +75,7 @@ class ShoppingCartTest {
         Baseball 5,00
         Baseball bat 15,00
         """;
-        assertEquals(expected, cart.toString());
+        assertThat(cart.toString(), equalTo(expected));
     }
 
     @Test
@@ -86,7 +86,7 @@ class ShoppingCartTest {
         Baseball 5,00
         Baseball hat 2,00
         """;
-        assertEquals(expected, cart.toString());
+        assertThat(cart.toString(), equalTo(expected));
     }
 
     @Test
@@ -94,7 +94,7 @@ class ShoppingCartTest {
         cart.add(new Item("Apple", 0.15));
         String expected = """
         Apple                     EUR  0,15""";
-        assertEquals(expected, cart.generateReceiptLine());
+        assertThat(cart.generateReceiptLine(), equalTo(expected));
     }
 
 
@@ -103,7 +103,7 @@ class ShoppingCartTest {
         cart.add(new Item("Toilet paper", 1.99));
         String expected = """
         Toilet paper              EUR  1,99""";
-        assertEquals(expected, cart.generateReceiptLine());
+        assertThat(cart.generateReceiptLine(), equalTo(expected));
     }
 
     @Test
@@ -114,7 +114,7 @@ class ShoppingCartTest {
         Baseball                  EUR  5,00
         Baseball hat              EUR  2,00
         TOTAL                     EUR  7,00""";
-        assertEquals(expected, cart.generateReceipt());
+        assertThat(cart.generateReceipt(), equalTo(expected));
     }
 
 }
