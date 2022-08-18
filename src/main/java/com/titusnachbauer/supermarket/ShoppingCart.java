@@ -35,13 +35,14 @@ public class ShoppingCart {
 
     public String generateReceipt() {
         ReceiptPrinter printer = new ReceiptPrinter();
-        String receipt = "";
+        StringBuilder receipt = new StringBuilder();
 
         for (Item item : items) {
-            receipt += printer.printItem(item, 0) + "\n";
+            receipt.append(printer.printItem(item, 0));
+            receipt.append("\n");
         }
 
-        return receipt + String.format("%-26s%s%6s", "TOTAL" , "EUR", new Money(this.totalPrice).toString()) + "\n";
+        return receipt.append(String.format("%-26s%s%6s", "TOTAL" , "EUR", new Money(this.totalPrice).toString())).toString();
     }
 
     public String generateReceiptLine() {

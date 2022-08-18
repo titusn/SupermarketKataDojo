@@ -88,7 +88,7 @@ class ShoppingCartTest {
         """;
         assertEquals(expected, cart.toString());
     }
-    
+
     @Test
     void GivenItemsAndPriceThenTheReceiptShouldFormatANiceLine(){
         cart.add(new Item("Apple", 0.15));
@@ -97,7 +97,7 @@ class ShoppingCartTest {
         assertEquals(expected, cart.generateReceiptLine());
     }
 
-    
+
     @Test
     void GivenItemsAndPriceThenTheReceiptShouldFormatANiceLine2(){
         cart.add(new Item("Toilet paper", 1.99));
@@ -113,9 +113,8 @@ class ShoppingCartTest {
         String expected="""
         Baseball                  EUR  5,00
         Baseball hat              EUR  2,00
-        TOTAL                     EUR  7,00 
-        """;
+        TOTAL                     EUR  7,00""";
         assertEquals(expected, cart.generateReceipt());
     }
-    
+
 }
