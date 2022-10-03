@@ -21,8 +21,8 @@ an extra line with the discount
 (e.g. 10% discount = EUR -0.12)
 - The receipt should show the total discount after the total price
 - Items can have a percentage discount, meaning a certain percentage is 
-substracted from the price
-- Items can have a "buy 2 get 1 free" discount, which applies when there
+subtracted from the price
+- Items can have a "buy 2, get 1 free" discount, which applies when there
 are three items of this name present in the shopping cart
 - Items can have a "buy x get y free" discount, which applies when there
 are x + y items of this name present in the shopping cart
