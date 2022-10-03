@@ -13,7 +13,7 @@ PRICE
 RECEIPT
 - When printing the receipt, show a list of items and their price
 - The last line should contain the total price
-- Items with the same name are grouped (e.g. 3 Carrots @ 0,40      EUR 1,20)
+- Items with the same name are aggregated (e.g. "Carrots 3 x 0,40      EUR 1,20")
 
 DISCOUNTS
 - If there are discounts applicable to an item, the receipt should contain 
