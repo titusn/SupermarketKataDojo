@@ -5,6 +5,8 @@ SHOPPING CART
 - After adding an item, shopping cart contains 1 item
 - After removing the item, shopping cart is empty
 - When trying to remove an item from empty shopping cart, throw an error
+- After adding 2 items, shopping cart contains 2 items
+- After adding 2 items and removing 1, shopping cart contains only the item that wasn't removed 
 
 PRICE
 - When shopping cart contains 1 item, total price is price of that item
